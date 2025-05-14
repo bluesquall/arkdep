@@ -1,0 +1,4 @@
+#!/bin/sh
+podman container run --rm -it \
+  --volume=$PWD:/arkdep:rw \
+  ghcr.io/bluesquall/arkdep
