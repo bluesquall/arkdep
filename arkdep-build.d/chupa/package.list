@@ -1,0 +1,93 @@
+# Arkane base non-GNOME
+bluez
+bluez-cups
+bluez-plugins
+bluez-utils
+cups
+cups-pdf
+flatpak
+fuse3
+fwupd
+gst-plugin-pipewire
+gst-plugins-base
+gst-plugins-good
+gvfs
+gvfs-afc
+gvfs-dnssd
+gvfs-goa
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
+gvfs-wsdd
+ibus-typing-booster
+networkmanager-openconnect
+networkmanager-openvpn
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+pipewire
+pipewire-alsa
+pipewire-audio
+pipewire-jack
+pipewire-pulse
+power-profiles-daemon
+spice-vdagent
+switcheroo-control
+webp-pixbuf-loader
+wireplumber
+xdg-user-dirs
+xdg-utils
+
+# Arkane Linux
+arkane-application-cleaner
+arkane-flatpak-init
+arkane-wallpapers
+
+# Community requested
+v4l-utils
+v4l2loopback-dkms
+v4l2loopback-utils
+
+# other essentials
+# arch-install-scripts
+base-devel
+cryptsetup
+curl
+libfido2
+mosh
+# openssh # dependency of mosh, so no need to specify twice
+podman
+
+# EDC
+lolcat
+neovim
+fzf
+git
+pass
+picocom
+pinentry-curses
+qrencode
+rsync
+socat
+starship
+tmux
+tree
+ttf-firacode-nerd
+zsh
+
+# experimenting
+act
+helix
+kakoune
+rclone
+sl
+
+# login manager: lemurs or ly, possibly sddm
+ly
+
+# Suckless
+# Actually, most of this needs to be installed from the AUR or from `git`,
+# so we need to put it in `post_install.sh` for `arkdep`. We *could* install
+# `dmenu` with `pacman`, but we might as well build all suckless components
+# from source.
