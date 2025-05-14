@@ -1,0 +1,106 @@
+# Arkane base non-GNOME
+bluez
+bluez-cups
+bluez-plugins
+bluez-utils
+cups
+cups-pdf
+flatpak
+fuse3
+fwupd
+gst-plugin-pipewire
+gst-plugins-base
+gst-plugins-good
+gvfs
+gvfs-afc
+gvfs-dnssd
+gvfs-goa
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
+gvfs-wsdd
+ibus-typing-booster
+networkmanager-openconnect
+networkmanager-openvpn
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+pipewire
+pipewire-alsa
+pipewire-audio
+pipewire-jack
+pipewire-pulse
+power-profiles-daemon
+spice-vdagent
+switcheroo-control
+webp-pixbuf-loader
+wireplumber
+xdg-user-dirs
+xdg-utils
+
+# Arkane Linux
+arkane-application-cleaner
+arkane-flatpak-init
+arkane-wallpapers
+
+# Community requested
+v4l-utils
+v4l2loopback-dkms
+v4l2loopback-utils
+
+# other essentials
+# arch-install-scripts
+base-devel
+cryptsetup
+curl
+libfido2
+mosh
+# openssh # dependency of mosh, so no need to specify twice
+podman
+
+# EDC
+lolcat
+neovim
+fzf
+git
+pass
+picocom
+pinentry-curses
+qrencode
+rsync
+socat
+starship
+tmux
+tree
+ttf-firacode-nerd
+zsh
+
+# experimenting
+act
+helix
+kakoune
+rclone
+sl
+
+# Hyprland
+hyprland
+kitty
+sddm
+uwsm
+
+# Hyprland - must have https://wiki.hyprland.org/Useful-Utilities/Must-have/
+mako
+# pipewire # already included above
+# wireplumber # already included above
+xdg-desktop-portal-hyprland
+hyprpolkitagent
+qt5-wayland
+qt6-wayland
+
+# Hyprland - useful
+dolphin
+hyprpaper
+# ranger
+waybar
+# yazi
