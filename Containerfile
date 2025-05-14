@@ -11,4 +11,5 @@ RUN pacman -Sy --noconfirm \
     gnupg \
     wget
 
+WORKDIR /var/tmp/arkdep
 CMD ["/usr/bin/env", "bash"]

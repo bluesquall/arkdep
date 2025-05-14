@@ -34,16 +34,17 @@ cleanup_and_quit () {
 }
 
 ## Set common variables
-#
-declare -r build_image='/var/tmp/arkdep-build.img'
-declare -r build_image_mountpoint='/var/tmp/arkdep-build'
+declare -r build_location='/var/tmp/arkdep'
+declare -r build_image="$build_location/arkdep-build.img"
+declare -r build_image_mountpoint="$build_location/staging"
 declare -r workdir="$build_image_mountpoint/rootfs"
 declare -r variant="$1"
 declare -r build_image_size='15G'
+mkdir -p $build_location
 
 # Minimum required storage in KiB
-declare -r minimum_available_root_storage='31457280' # 30G
-declare -r minimum_available_var_storage='20971520' # 20G
+declare -r minimum_available_output_storage='31457280' # 30G
+declare -r minimum_available_build_storage='20971520' # 20G
 
 if [[ -v ARKDEP_CONFIGS ]]; then
 	declare -r configsdir="$ARKDEP_CONFIGS"
@@ -66,6 +67,7 @@ if [[ -v ARKDEP_OUTPUT_TARGET ]]; then
 else
 	declare -r output_target="$(pwd)/target"
 fi
+mkdir -p $output_target
 
 ## Set common functions
 #
@@ -116,18 +118,18 @@ fi
 # Run the storage check only if we are not building a migration
 if [[ $type != 'migration' ]]; then
 	# Ensure we have the required storage available on both /var/tmp and root
-	declare root_storage_available=($(df --output=avail /))
-	root_storage_available=${root_storage_available[1]}
-	declare var_storage_available=($(df --output=avail /var/tmp))
-	var_storage_available=${var_storage_available[1]}
+	declare output_storage_available=($(df --output=avail $output_target))
+	output_storage_available=${output_storage_available[1]}
+	declare build_storage_available=($(df --output=avail $build_location))
+	build_storage_available=${build_storage_available[1]}
 
-	if [[ $root_storage_available -lt $minimum_available_root_storage ]]; then
-		printf 'Not enough storage available on root to export image\n'
+	if [[ $output_storage_available -lt $minimum_available_output_storage ]]; then
+		printf 'Not enough storage available in output location to export image\n'
 		exit 1
 	fi
 
-	if [[ $var_storage_available -lt $minimum_available_var_storage ]]; then
-		printf 'Not enough storage available on var to create image\n'
+	if [[ $build_storage_available -lt $minimum_available_build_storage ]]; then
+		printf 'Not enough storage available in build location to create image\n'
 		exit 1
 	fi
 fi

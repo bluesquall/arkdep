@@ -1,4 +1,4 @@
 #!/bin/sh
 podman container run --rm -it \
-  --volume=$PWD:/arkdep:rw \
+  --volume=$PWD:/var/tmp/arkdep:rw \
   ghcr.io/bluesquall/arkdep
